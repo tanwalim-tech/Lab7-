@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boonsiri Masan</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+/* Navbar */
+.navbar{
+    background:#7b5d6c;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    margin:0;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Hero Image */
+.hero{
+    height:250px;
+    background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover;
+}
+
+/* Buttons */
+.controls{
+    text-align:center;
+    margin:15px;
+}
+
+button{
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.play{
+    background:#ffc107;
+}
+
+.pause{
+    background:#dc3545;
+    color:white;
+}
+
+/* Form */
+.form-box{
+    width:400px;
+    background:white;
+    margin:20px auto;
+    border-radius:5px;
+    box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+
+.form-title{
+    background:#2d6cdf;
+    color:white;
+    padding:10px;
+}
+
+form{
+    padding:15px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:3px;
+}
+
+.gender{
+    display:flex;
+    gap:10px;
+}
+
+.submit{
+    background:#28a745;
+    color:white;
+}
+
+.reset{
+    background:#dc3545;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h3>68112383 Tanwa Limwong</h3>
+    <ul>
+        <li><a href="#">หน้าแรก</a></li>
+        <li><a href="#">ข้อมูลบริษัท</a></li>
+        <li><a href="#">บริการ</a></li>
+        <li><a href="#">เกี่ยวกับเรา</a></li>
+    </ul>
+</div>
+
+<!-- Hero -->
+<div class="hero"></div>
+
+<!-- Play Pause -->
+<div class="controls">
+    <button class="play" onclick="playMusic()">Play</button>
+    <button class="pause" onclick="pauseMusic()">Pause</button>
+</div>
+
+<audio id="music">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Form -->
+<div class="form-box">
+
+<div class="form-title">
+แบบฟอร์มลงทะเบียน
+</div>
+
+<form>
+
+<label>ชื่อ-นามสกุล</label>
+<input type="text" placeholder="กรุณากรอกชื่อ-นามสกุล">
+
+<label>อีเมล</label>
+<input type="email" placeholder="example@domain.com">
+
+<label>รหัสผ่าน</label>
+<input type="password">
+
+<label>เพศ</label>
+<div class="gender">
+<label><input type="radio" name="gender"> ชาย</label>
+<label><input type="radio" name="gender"> หญิง</label>
+</div>
+
+<label>ตำแหน่ง</label>
+<select>
+<option>Please select a position</option>
+<option>Programmer</option>
+<option>Designer</option>
+<option>Manager</option>
+</select>
+
+<br><br>
+
+<button type="submit" class="submit">ลงทะเบียน</button>
+<button type="reset" class="reset">ล้างข้อมูล</button>
+
+</form>
+
+</div>
+
+<script>
+
+var music = document.getElementById("music");
+
+function playMusic(){
+    music.play();
+}
+
+function pauseMusic(){
+    music.pause();
+}
+
+</script>
+
+</body>
+</html>
