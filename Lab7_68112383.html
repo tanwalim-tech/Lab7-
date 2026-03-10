@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="th">
+
 <head>
 <meta charset="UTF-8">
 <title>Register Form</title>
@@ -9,50 +10,77 @@
 
 <style>
 
+/* Reset */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* พื้นหลังวิดีโอ */
+.video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+/* จัดฟอร์มกลางจอ */
 body{
-    height:100vh;
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    /* พื้นหลังรูปภาพ */
-    background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:sans-serif;
 }
 
-.form-box{
-    width:420px;
-    background:white;
-    border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    overflow:hidden;
-}
-
-.form-header{
-    background:#2f64c8;
-    color:white;
-    padding:15px;
-    font-size:20px;
-    font-weight:bold;
-}
-
+/* ปุ่มด้านบน */
 .top-buttons{
-    position:absolute;
-    top:20px;
+position:absolute;
+top:20px;
+}
+
+/* กล่องฟอร์ม */
+.form-box{
+width:420px;
+background:rgba(255,255,255,0.9);
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+overflow:hidden;
+}
+
+/* หัวฟอร์ม */
+.form-header{
+background:#2f64c8;
+color:white;
+padding:15px;
+font-size:20px;
+font-weight:bold;
 }
 
 </style>
 
 </head>
+
 <body>
 
+<!-- Video Background -->
+
+<video autoplay muted loop id="bgVideo" class="video-bg">
+<source src="VDO/204006-923133925_small.mp4" type="video/mp4">
+</video>
+
+<!-- ปุ่มควบคุมวิดีโอ -->
+
 <div class="top-buttons">
-    <button class="btn btn-warning">Play</button>
-    <button class="btn btn-danger">Pause</button>
+<button class="btn btn-warning" onclick="playVideo()">Play</button>
+<button class="btn btn-danger" onclick="pauseVideo()">Pause</button>
 </div>
+
+<!-- กล่องฟอร์ม -->
 
 <div class="form-box">
 
@@ -95,17 +123,34 @@ body{
 <div class="mb-3">
 <label class="form-label">ตำแหน่ง</label>
 <select class="form-select">
-<option>Please select a position</option>
+<option selected disabled>Please select a position</option>
 <option>Programmer</option>
 <option>Designer</option>
 <option>Manager</option>
 </select>
 </div>
 
-<button class="btn btn-success">ลงทะเบียน</button> <button class="btn btn-danger">ล้างข้อมูล</button>
+<div class="d-flex gap-2">
+<button class="btn btn-success">ลงทะเบียน</button>
+<button class="btn btn-danger">ล้างข้อมูล</button>
+</div>
 
 </div>
 </div>
+
+<script>
+
+const video = document.getElementById("bgVideo");
+
+function playVideo(){
+video.play();
+}
+
+function pauseVideo(){
+video.pause();
+}
+
+</script>
 
 </body>
 </html>
